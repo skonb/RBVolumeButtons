@@ -89,27 +89,27 @@ static void volumeListenerCallback (
     AudioSessionSetActive(YES);
 
     self.launchVolume = [[MPMusicPlayerController applicationMusicPlayer] volume];
-    self.hadToLowerVolume = self.launchVolume == 1.0;
-    self.hadToRaiseVolume = self.launchVolume == 0.0;
-
-    // Avoid flashing the volume indicator
-    if (self.hadToLowerVolume || self.hadToRaiseVolume)
-    {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (self.hadToLowerVolume)
-            {
-                [[MPMusicPlayerController applicationMusicPlayer] setVolume:0.95];
-                self.launchVolume = 0.95;
-            }
-
-            if (self.hadToRaiseVolume)
-            {
-                [[MPMusicPlayerController applicationMusicPlayer] setVolume:0.05];
-                self.launchVolume = 0.05;
-            }
-        });
-    }
-
+//    self.hadToLowerVolume = self.launchVolume == 1.0;
+//    self.hadToRaiseVolume = self.launchVolume == 0.0;
+//
+//    // Avoid flashing the volume indicator
+//    if (self.hadToLowerVolume || self.hadToRaiseVolume)
+//    {
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            if (self.hadToLowerVolume)
+//            {
+//                [[MPMusicPlayerController applicationMusicPlayer] setVolume:0.95];
+//                self.launchVolume = 0.95;
+//            }
+//
+//            if (self.hadToRaiseVolume)
+//            {
+//                [[MPMusicPlayerController applicationMusicPlayer] setVolume:0.05];
+//                self.launchVolume = 0.05;
+//            }
+//        });
+//    }
+//
     CGRect frame = CGRectMake(0, -100, 10, 0);
     self.volumeView = [[[MPVolumeView alloc] initWithFrame:frame] autorelease];
     [self.volumeView sizeToFit];
